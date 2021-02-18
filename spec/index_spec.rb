@@ -14,8 +14,7 @@ describe 'Launch' do
     end
 
     it 'succeeded' do
-        title = @driver.title
-        expect(title).to eql('My Store')
+        expect(@index.is_loaded?).to be_truthy
     end
 
 end
