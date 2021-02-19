@@ -2,7 +2,7 @@ require 'selenium-webdriver'
 require 'webdrivers'
 require_relative '../pages/index'
 
-describe 'Launch' do
+describe 'Contact Us' do
 
     before(:each) do
         @driver = Selenium::WebDriver.for :chrome
@@ -13,8 +13,9 @@ describe 'Launch' do
         @driver.quit
     end
 
-    it 'succeeded' do
-        expect(@index.is_loaded?).to be_truthy
+    it 'Succeeded' do
+        @contact = @index.click_contact_us_link
+        expect(@contact.is_loaded?).to be_truthy
     end
 
 end
