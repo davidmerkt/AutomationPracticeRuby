@@ -9,7 +9,7 @@ describe 'Contact Us' do
     end
 
     it 'succeeded' do
-        @contact = @index.click_contact_us_link
+        @contact = @index.header.click_contact_us_link
         expect(@contact.is_loaded?).to be_truthy
     end
 

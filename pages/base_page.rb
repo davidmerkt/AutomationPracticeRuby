@@ -2,6 +2,8 @@ require 'selenium-webdriver'
 
 class BasePage
 
+    attr_reader :header
+
     def initialize(driver)
         @driver = driver
     end
