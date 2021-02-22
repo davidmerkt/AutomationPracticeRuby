@@ -5,7 +5,6 @@ require_relative '../pages/index'
 describe 'Launch' do
 
     before(:each) do
-        # @driver = Selenium::WebDriver.for :chrome
         @index = Index.new(@driver)
     end
 
