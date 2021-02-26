@@ -2,6 +2,8 @@ require_relative 'base_page'
 
 class Search < BasePage
 
+    attr_reader :invalid_search_results
+
     def initialize(driver, search_query = '')
         super(driver)
         parse_results(search_query)

@@ -9,10 +9,12 @@ describe 'Product Search' do
     end
 
     it 'Search successful' do
-        @search = @index.header.search_for_item 'shirt'
+        search_item = 'shirt'
+        @search = @index.header.search_for_item search_item
         
         expect(@search.is_loaded?).to be_truthy
-        expect(@search.valid_results?).to be_truthy
+        expect(@search.valid_results?).to be_truthy, 
+            "Invalid items returned.\nSearched for: \"#{search_item}\".\nSearch results included: #{@search.invalid_search_results}"
     end
     
 end
