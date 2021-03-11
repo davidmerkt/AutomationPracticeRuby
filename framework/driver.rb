@@ -15,7 +15,6 @@ class Driver
             url = "http://automationpractice.com#{url}"
         end
 
-        puts "Navigating to: #{url}"
         @driver.navigate.to url
     end
 
