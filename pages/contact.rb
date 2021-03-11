@@ -1,9 +1,7 @@
-require_relative 'base_page'
-
-class Contact < BasePage
+class Contact
 
     def initialize(driver)
-        super
+        @driver = driver
     end
 
     def is_loaded?

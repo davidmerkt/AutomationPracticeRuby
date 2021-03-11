@@ -1,13 +1,14 @@
-require_relative 'base_page'
 require_relative 'header'
 require_relative 'contact'
 require_relative 'search'
 
-class Index < BasePage
+class Index
+
+    attr_reader :header
 
     def initialize(driver)
-        super
-        navigate_to '/index.php'
+        @driver = driver
+        @driver.navigate_to '/index.php'
         @header = Header.new(@driver)
     end
 

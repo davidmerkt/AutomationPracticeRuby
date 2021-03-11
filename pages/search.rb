@@ -1,11 +1,9 @@
-require_relative 'base_page'
-
-class Search < BasePage
+class Search
 
     attr_reader :invalid_search_results
 
     def initialize(driver, search_query = '')
-        super(driver)
+        @driver = driver
         parse_results(search_query)
     end
 
@@ -14,14 +12,14 @@ class Search < BasePage
     end
 
     def parse_results(search_query)
-        product_cards = find_elements(css: '.ajax_block_product')
+        product_cards = @driver.find_elements(css: '.ajax_block_product')
 
         @search_results = Array.new
         @valid_search_results = Array.new
         @invalid_search_results = Array.new
 
         product_cards.each do |product_card|
-            product_name = find({css: 'a.product-name'}, product_card).text
+            product_name = product_card.find_element({css: 'a.product-name'}).text
             @search_results.push(product_name)
             if product_name.downcase.include? search_query.downcase
                 @valid_search_results.push(product_name)

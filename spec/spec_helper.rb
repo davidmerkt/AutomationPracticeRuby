@@ -1,11 +1,12 @@
 require 'selenium-webdriver'
 require 'webdrivers'
+require_relative '../framework/driver'
 
 RSpec.configure do |c|
 
     c.before do |example|
         puts "\nStarting driver"
-        @driver = Selenium::WebDriver.for :firefox
+        @driver = Driver.new
     end
 
     c.after do |example|
