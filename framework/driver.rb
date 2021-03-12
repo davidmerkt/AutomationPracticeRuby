@@ -1,5 +1,6 @@
 require 'selenium-webdriver'
 require 'webdrivers'
+require_relative 'element'
 
 class Driver
     def initialize
@@ -19,7 +20,9 @@ class Driver
     end
 
     def find_element(locator)
-        @driver.find_element locator
+        element = @driver.find_element locator
+        framework_element = Element.new @driver, element, locator
+        framework_element
     end
 
     def find_elements(locator)
