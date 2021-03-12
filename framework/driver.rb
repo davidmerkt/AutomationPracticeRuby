@@ -1,6 +1,7 @@
 require 'selenium-webdriver'
 require 'webdrivers'
 require_relative 'element'
+require_relative 'console_logging_element'
 
 class Driver
     def initialize
@@ -22,6 +23,7 @@ class Driver
     def find_element(locator)
         element = @driver.find_element locator
         framework_element = Element.new @driver, element, locator
+        framework_element.extend ConsoleLoggingElement
         framework_element
     end
 
