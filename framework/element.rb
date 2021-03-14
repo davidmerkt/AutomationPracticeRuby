@@ -23,6 +23,9 @@ class Element
     end
 
     def find_element(locator)
-        @element.find_element locator
+        new_element = @element.find_element locator
+        framework_element = Element.new @driver, new_element, locator
+        framework_element.extend ConsoleLoggingElement
+        framework_element
     end
 end

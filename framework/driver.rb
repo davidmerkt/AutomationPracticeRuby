@@ -28,7 +28,16 @@ class Driver
     end
 
     def find_elements(locator)
-        @driver.find_elements locator
+        elements = @driver.find_elements locator
+        framework_elements = Array.new
+
+        elements.each do |element|
+            framework_element = Element.new @driver, element, locator
+            framework_element.extend ConsoleLoggingElement
+            framework_elements.push framework_element
+        end
+
+        framework_elements
     end
 
     def title
